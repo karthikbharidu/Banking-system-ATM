@@ -1,0 +1,86 @@
+class Bank():
+    
+    def __init__(self,account,passcode):
+        self.account=account
+        self.passcode=passcode
+        self.balance=5000 #default given balance to this account
+        print("-------WELCOME TO KBC BANK--------")
+    def deposit(self):
+        print("-------DEPOSIT HERE-------")
+        accountnumber=int(input("Enter your account number:"))
+        if(accountnumber==self.account):
+            password=int(input("Enter your password:"))
+            if(password==self.passcode):
+                amount=int(input("Enter amount to deposit:" ))
+                self.balance+=amount
+                
+            else:
+                print("Wrong password!!!")
+                print("Try Again Later!!!!")
+                
+        else:
+            print("Wrong Account number!!!")
+            print("Try Again Later!!!!")
+        if(accountnumber==self.account and password==self.passcode):
+        
+            print("Your amount is Successfully deposited!!!")
+            print("Your balance is:",self.balance,"RS")
+            print("Thank you For Banking With us!!!!")
+    def withdraw(self):
+        print("--------WITHDRAW HERE--------")
+        accountnumber=int(input("Enter your account number:"))
+        if(accountnumber==self.account):
+            password=int(input("Enter your password:"))
+            if(password==self.passcode):
+               # print("Your Account Balnce is:",self.balance,"RS")
+                amount=int(input("Enter amount to withdraw:"))
+                if(amount>self.balance):
+                    print("Insufficient balance")
+                else:
+                    print("Please Take your cash")
+                    self.balance-=amount
+                check=int(input("Enter 1 to know your account balance or Enter 0 to exit::"))
+                if(check==1):
+                    print("Your account balance is",self.balance,"RS")
+                elif(check==0):
+                    print("Thank you For Banking With us!!!!")
+                    print("Come Again later")
+                          
+            else:
+                print("Wrong Passcode:")
+                print("Try Again Later!!!!")
+        else:
+            print("Wrong Account number")
+            print("Try Again Later!!!!")
+        
+         
+    def Enquiry(self):
+        print("--------BALANCE ENQUIRY HERE--------")
+        accountnumber=int(input("Enter your account number:"))
+        if(accountnumber==self.account):
+            password=int(input("Enter your password:"))
+            if(password==self.passcode):
+                print("Your balance is:",self.balance,"RS")
+                print("Thank you For Banking With us!!!!")
+            else:
+                print("Wrong password")
+                print("Try Again Later!!!!")
+                
+        else:
+            print("Wrong account number!!!!")
+            print("Try Again Later!!!!")
+         
+
+
+customer1=Bank(12345,4321)
+print("Select your Banking")
+print("1. Deposit 2. Withdraw 3.Enquiry")
+operation=int(input("select your Operation:"))
+if(operation==1):
+    customer1.deposit()
+elif(operation==2):
+    customer1.withdraw()
+elif(operation==3):
+    customer1.Enquiry()
+else:
+    print("WRONG INPUT!!!!!")
